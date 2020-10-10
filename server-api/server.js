@@ -40,4 +40,4 @@ app.use(function (req, res, next) {
 
 //require('../app/config/controllers/models/routes/user.routes.js')(app);
 
-require('./routes/customer.routes.js')(app);
+require('./routes/user.routes.js')(app);
