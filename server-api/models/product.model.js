@@ -1,7 +1,5 @@
 const sql = require('./db.js');
 
-//constructor
-
 const prod = function(prod){
     
 };
