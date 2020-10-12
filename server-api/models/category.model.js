@@ -1,4 +1,4 @@
-const sql = requiere('./db.js');
+const sql = require('./db.js');
 
 
 const Category = function(cate) {
@@ -10,14 +10,14 @@ const Category = function(cate) {
 
 //Crear nueva categoria
 Category.Create = (newCategory, result) => {
-    sql.query("INSERT INTO customers SET ?", newCategory, (err, res) => {
+    sql.query("INSERT INTO Categoria SET ?", newCategory, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
         return;
       }
   
-      console.log("created customer: ", { id: res.insertId, ...newCategory });
+      console.log("Categoria creada: ", { id: res.insertId, ...newCategory });
       result(null, { id: res.insertId, ...newCategory });
     });
 };
@@ -59,7 +59,7 @@ Category.getAll = result => {
 //ACTUALIZAR LA CATEGORIA POR EL ID
 Category.updateById = (id, categ, result) => {
     sql.query(
-      "UPDATE customers SET email = ?, name = ?, active = ? WHERE id = ?",
+      "UPDATE Categoria SET email = ?, name = ?, active = ? WHERE id = ?",
       [categ.nombre, categ.detalle, categ.estado, id],
       (err, res) => {
         if (err) {
@@ -91,7 +91,7 @@ Category.remove = (idcate, result) => {
   
       if (res.affectedRows == 0) {
         // not found Customer with the id
-        result({ kind: "Id no para eliminar no encontrado" }, null);
+        result({ kind: "Id para eliminar no encontrado" }, null);
         return;
       }
   

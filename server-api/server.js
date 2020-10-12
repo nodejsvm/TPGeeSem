@@ -39,6 +39,10 @@ app.use(function (req, res, next) {
 });
 
 
-require('./routes/user.routes.js')(app);
+require('./routes/product.routes.js')(app);
 
 require('./routes/category.routes.js')(app);
+
+require('./routes/client.routes.js')(app);
+
+require('./routes/service.routes.js')(app);
