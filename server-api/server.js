@@ -38,6 +38,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-//require('../app/config/controllers/models/routes/user.routes.js')(app);
 
 require('./routes/user.routes.js')(app);
+
+require('./routes/category.routes.js')(app);
