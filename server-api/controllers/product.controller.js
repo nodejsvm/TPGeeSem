@@ -49,7 +49,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-//ACTUALIZAR PRODUCTOS
+//ACTUALIZAR UN PRODUCTO
 exports.update = (req, res) => {
     
     if (!req.body) {
@@ -65,11 +65,11 @@ exports.update = (req, res) => {
         if (err) {
           if (err.kind === "not_found") {
             res.status(404).send({
-              message: `No se encuntra una prodegoria con el siguiente id ${req.params.customerId}.`
+              message: `No se encuntra un producto con el siguiente id ${req.params.customerId}.`
             });
           } else {
             res.status(500).send({
-              message: "Error al tratar de actualizar una prodegoria con el siguiente id " + req.params.customerId
+              message: "Error al tratar de actualizar un producto con el siguiente id " + req.params.customerId
             });
           }
         } else res.send(data);
@@ -83,14 +83,14 @@ exports.delete = (req, res) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra una prodegoria con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un producto con el siguiente id ${req.params.customerId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de eliminar una prodegoria con el siguiente i " + req.params.customerId
+            message: "Error al tratar de eliminar un producto con el siguiente i " + req.params.customerId
           });
         }
-      } else res.send({ message: `Customer was deleted successfully!` });
+      } else res.send({ message: `Producto eliminado correctamente!` });
     });
   };
 
@@ -101,8 +101,8 @@ exports.deleteAll = (req, res) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || "Ocurrio un error al tratar de eliminar todas las prodegorias."
+            err.message || "Ocurrio un error al tratar de eliminar todos los productos."
         });
-      else res.send({ message: `Todas las prodegorias fueron eliminadas correctamente!` });
+      else res.send({ message: `Todas los productos fueron eliminadas correctamente!` });
     });
   };

@@ -1,6 +1,6 @@
 const client = require('../models/client.model.js');
 
-//CREAR CATEGORIA
+//CREAR CLIENTE
 exports.create = (req, res) => {
 
     if (!req.body) {
@@ -20,7 +20,7 @@ exports.create = (req, res) => {
   };
 
 
-//MOSTRAR SOLO UNA clientes
+//MOSTRAR SOLO UN CLIENTE
 exports.findOne = (req, res) => {
     client.findById(req.params.customerId, (err, data) => {
       if (err) {
@@ -37,7 +37,7 @@ exports.findOne = (req, res) => {
     });
   };
 
-//MOSTRAR TODAS LAS clientes
+//MOSTRAR TODOS LOS CLIENTES
 exports.findAll = (req, res) => {
      client.getAll(( err, data) => {
         if(err)
@@ -49,7 +49,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-//ACTUALIZAR clientes
+//ACTUALIZAR UN CLIENTE
 exports.update = (req, res) => {
     // Validate Request
     if (!req.body) {
@@ -77,7 +77,7 @@ exports.update = (req, res) => {
     );
   };
 
-//ELIMINAR UNA clientes
+//ELIMINAR UN CLIENTE
 exports.delete = (req, res) => {
     client.remove(req.params.customerId, (err, data) => {
       if (err) {
@@ -95,14 +95,14 @@ exports.delete = (req, res) => {
   };
 
 
-//ELIMINAR TODAS LAS clientes
+//ELIMINAR TODOS LOS CLIENTES
 exports.deleteAll = (req, res) => {
     client.removeAll((err, data) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || "Ocurrio un error al tratar de eliminar todas las clientes."
+            err.message || "Ocurrio un error al tratar de eliminar todos los clientes."
         });
-      else res.send({ message: `Todas las categorias fueron eliminadas correctamente!` });
+      else res.send({ message: `Todos los clientes fueron eliminados correctamente!` });
     });
   };

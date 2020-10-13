@@ -1,11 +1,11 @@
 const serv = require('../models/service.model.js');
 
-//CREAR SER
+//CREAR SERVICIO
 exports.create = (req, res) => {
 
     if (!req.body) {
       res.status(400).send({
-        message: "Content can not be empty!"
+        message: "El contenido no puede estar vacio!"
       });
     }
 
@@ -13,43 +13,43 @@ exports.create = (req, res) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || 'Ocurrió un error al tratar de crear una servegoria.'
+            err.message || 'Ocurrió un error al tratar de crear un servicio.'
         });
       else res.send(data);
     });
   };
 
 
-//MOSTRAR SOLO UN servUCTO
+//MOSTRAR SOLO UN SERVICIO
 exports.findOne = (req, res) => {
     serv.findById(req.params.customerId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra una servegoria con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de recuperar servegoria con el siguiente id " + req.params.customerId
+            message: "Error al tratar de recuperar un servicio con el siguiente id " + req.params.customerId
           });
         }
       } else res.send(data);
     });
   };
 
-//MOSTRAR TODAS LOS servUCTOS
+//MOSTRAR TODOS LOS SERVICIOS
 exports.findAll = (req, res) => {
      serv.getAll(( err, data) => {
         if(err)
         res.status(500).send({
             message:
-            err.message || 'Ocurrió un error al tratar de mostrar las servegorias.'
+            err.message || 'Ocurrió un error al tratar de mostrar los servicios.'
             });
         else res.send(data);
     });
 };
 
-//ACTUALIZAR servUCTOS
+//ACTUALIZAR SERVICIO
 exports.update = (req, res) => {
     
     if (!req.body) {
@@ -65,11 +65,11 @@ exports.update = (req, res) => {
         if (err) {
           if (err.kind === "not_found") {
             res.status(404).send({
-              message: `No se encuntra una servegoria con el siguiente id ${req.params.customerId}.`
+              message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
             });
           } else {
             res.status(500).send({
-              message: "Error al tratar de actualizar una servegoria con el siguiente id " + req.params.customerId
+              message: "Error al tratar de actualizar un servicio con el siguiente id " + req.params.customerId
             });
           }
         } else res.send(data);
@@ -77,32 +77,32 @@ exports.update = (req, res) => {
     );
   };
 
-//ELIMINAR UN servUCTO
+//ELIMINAR UN SERVICIO
 exports.delete = (req, res) => {
     serv.remove(req.params.customerId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra una servegoria con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de eliminar una servegoria con el siguiente i " + req.params.customerId
+            message: "Error al tratar de eliminar una servicio con el siguiente i " + req.params.customerId
           });
         }
-      } else res.send({ message: `Customer was deleted successfully!` });
+      } else res.send({ message: `Servicio eliminado correctamente!` });
     });
   };
 
 
-//ELIMINAR TODOS LOS servUCTOS
+//ELIMINAR TODOS LOS SERVICIOS
 exports.deleteAll = (req, res) => {
     serv.removeAll((err, data) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || "Ocurrio un error al tratar de eliminar todas las servegorias."
+            err.message || "Ocurrio un error al tratar de eliminar todas las servicios."
         });
-      else res.send({ message: `Todas las servegorias fueron eliminadas correctamente!` });
+      else res.send({ message: `Todos los servicios fueron eliminadas correctamente!` });
     });
   };
