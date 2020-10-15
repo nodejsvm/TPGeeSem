@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "TPGeesem"
+  "defaultProject": "TPGeesem",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -12,13 +12,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './secciones/footer/footer.component';
+import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
     MainNavComponent,
-    FooterComponent
+    FooterComponent,
+    ServiceComponenteComponent
   ],
   imports: [
     BrowserModule,
