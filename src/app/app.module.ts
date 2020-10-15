@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { ProductoComponent } from './producto/producto/producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './secciones/footer/footer.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { ServiceComponenteComponent } from './servicio/service-componente/servic
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatGridListModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatListModule
   ],
