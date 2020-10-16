@@ -1,3 +1,11 @@
 mat-grid-tile {
     background: lightblue;
+    
+}
+
+.imagen1{
+    background-image:url('https://images.pexels.com/photos/4753985/pexels-photo-4753985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');   
+}
+.imagen2{
+    background-image: url('https://images.pexels.com/photos/3872370/pexels-photo-3872370.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 }

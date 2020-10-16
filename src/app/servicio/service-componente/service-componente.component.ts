@@ -15,4 +15,3 @@ export class ServiceComponenteComponent implements OnInit {
 
 }
 
-export class GridListOverviewExample {}
