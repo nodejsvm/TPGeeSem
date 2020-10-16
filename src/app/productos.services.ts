@@ -9,7 +9,7 @@ import { HttpClient } from "@angular/common/http";
 )
 
 export class ProductoServices{
-    API_URI:string ="http://localhost:3000/";
+    API_URI:string ="http://localhost:3000";
     constructor(private http:HttpClient){
     }
 

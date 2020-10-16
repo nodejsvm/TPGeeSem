@@ -14,11 +14,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Api GimnasioH2O" });
 });
 
-// set port, listen for requests
-app.listen(3000, () => {
-  console.log("Servidor corriendo en el puerto 3000.");
-});
-
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
@@ -38,7 +33,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 require('./routes/product.routes.js')(app);
 
 require('./routes/category.routes.js')(app);
@@ -46,3 +40,10 @@ require('./routes/category.routes.js')(app);
 require('./routes/client.routes.js')(app);
 
 require('./routes/service.routes.js')(app);
+
+// set port, listen for requests
+app.listen(3000, () => {
+  console.log("Servidor corriendo en el puerto 3000.");
+});
+
+

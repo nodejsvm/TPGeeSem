@@ -15,13 +15,9 @@ import { FooterComponent } from './secciones/footer/footer.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
-import {HttpClienteModule} from "@angular/comon/http";
 import { HttpClientModule } from '@angular/common/http';
 
-const routes: Route[]=[
-  {path: "",}
-]
+
 @NgModule({
   declarations: [
     AppComponent,
