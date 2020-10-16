@@ -1,0 +1,13 @@
+<!--TRAIGO EN UN ARRAY TODOS LOS PRODUCTOS Y LOS PASO A LA VARIABLE PROD-->
+<div>
+    <tbody>
+        <tr *ngFor = "let prod of listProduArray">
+            <!--TENEMOS QUE PONER LOS CAMPOS COMO EN LA BD, CONEXION IGUAL A C#-->
+            <td >{{prod.idProd}}</td>
+            <td >{{prod.nombre}}</td>
+            <td >{{prod.estado}}</td>
+            <td >{{prod.descripcion}}</td>
+            <td >{{prod.precio}}</td>
+        </tr>
+    </tbody>
+</div>
