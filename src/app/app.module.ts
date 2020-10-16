@@ -16,6 +16,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import {HttpClienteModule} from "@angular/comon/http";
+import { HttpClientModule } from '@angular/common/http';
+
+const routes: Route[]=[
+  {path: "",}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatGridListModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

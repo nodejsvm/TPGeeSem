@@ -5,3 +5,17 @@
   <mat-grid-tile class="image4">Masajista</mat-grid-tile>
 </mat-grid-list>
 
+
+<!--TRAIGO EN UN ARRAY TODOS LOS SERVICIOS Y LOS PASO A LA VARIABLE SERV-->
+<tbody>
+  <tr *ngFor="let servi of listServiciosarray">
+    <!--TENEMOS QUE PONER LOS CAMPOS COMO EN LA BD, CONEXION IGUAL A C#-->
+    <td>{servi.idServ}</td>
+    <td>{servi.nombre}</td>
+    <td>{servi.estado}</td>
+    <td>{serv.descripcion}</td>
+    <td>{servi.precio}</td>
+  </tr>
+</tbody>
+
+ 
