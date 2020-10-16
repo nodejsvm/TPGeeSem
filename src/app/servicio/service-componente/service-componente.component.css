@@ -3,9 +3,15 @@ mat-grid-tile {
     
 }
 
-.imagen1{
+.image1{
     background-image:url('https://images.pexels.com/photos/4753985/pexels-photo-4753985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');   
 }
-.imagen2{
-    background-image: url('https://images.pexels.com/photos/3872370/pexels-photo-3872370.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+.image2{
+    background-image: url('https://images.pexels.com/photos/4117545/pexels-photo-4117545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');   
+}
+.image3{
+    background-image: url('https://images.pexels.com/photos/260409/pexels-photo-260409.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+}
+.image4{
+    background-image: url('https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 }
