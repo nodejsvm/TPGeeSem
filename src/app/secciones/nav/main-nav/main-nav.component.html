@@ -5,10 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menú</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Nosotros</a>
-      <a mat-list-item href="#">Productos</a>
-      <a mat-list-item href="#">Servicios</a>
-      <a mat-list-item href="#">Contacto</a>
+      <a mat-list-item [routerLink]="['Servicios']" routerLinkActive="router-link-active" >Nosotros</a>
+      <a mat-list-item [routerLink]="['Productos']" routerLinkActive="router-link-active" >Productos</a>
+      <a mat-list-item [routerLink]="['Servicios']" routerLinkActive="router-link-active" >Servicios</a>
+      <a mat-list-item [routerLink]="['Servicios']" routerLinkActive="router-link-active" >Contacto</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,10 +24,10 @@
       <span>Gimnasio H2O</span>
     </mat-toolbar>
     <!-- //Acá debajo van los componentes -->
-     <app-producto></app-producto> 
+     <!-- <app-producto></app-producto>  -->
+     <router-outlet></router-outlet>
     <!-- <app-service-componente></app-service-componente> -->
-    <app-footer></app-footer>
-    
+    <!-- <app-footer></app-footer> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
 
