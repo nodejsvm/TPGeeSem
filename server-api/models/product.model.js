@@ -59,7 +59,7 @@ Prod.getAll = result => {
 //ACTUALIZAR EL PRODUCTO POR EL ID
 Prod.updateById = (id, prod, result) => {
   sql.query(
-    "UPDATE Producto SET email = ?, name = ?, active = ? WHERE id = ?",
+    "UPDATE Producto SET nombre = ?, estado = ?, precio = ?, descripcion = ? WHERE id = ?",
     [prod.nombre, categ.estado, prod.precio, prod.detalle, id],
     (err, res) => {
       if (err) {

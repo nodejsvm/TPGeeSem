@@ -43,6 +43,8 @@ export class ProductoComponent implements OnInit, OnDestroy {
       err => console.error(err)
     )
   }
+
+  //CREAR BANDERA POR SI ES EDITAR O CREAR NUEVO
   
   guardarProduc(){
     this.productoNuevo = {
@@ -69,6 +71,9 @@ export class ProductoComponent implements OnInit, OnDestroy {
       }
     )
   }
-  
+
+  actualizarProd(){
+
+  }  
 }
 

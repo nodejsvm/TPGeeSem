@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { producto } from './models/producto.models';
 
 @Injectable
 (
@@ -18,11 +19,16 @@ export class ProductoServices{
     }
     
     postProd(datonuevo){
-        return this.http.put(`${this.API_URI}/producto`,datonuevo)
+        return this.http.post(`${this.API_URI}/producto`,datonuevo)
     }
 
     deleteProd(idEliminar){
         return this.http.delete(`${this.API_URI}/producto/${idEliminar}`)
     }
+
+    putProd(productoActualizar: producto){
+        return this.http.put(`${this.API_URI}/producto/${productoActualizar.idProduc}`,productoActualizar)
+    }
+    
 }
 
