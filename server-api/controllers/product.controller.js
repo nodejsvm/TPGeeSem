@@ -9,11 +9,11 @@ exports.create = (req, res) => {
       });
     }
 
-    prod.create(prod, (err, data) => {
+    prod.create(req.body,(err, data) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || 'Ocurrió un error al tratar de crear una prodegoria.'
+            err.message || 'Ocurrió un error al tratar de crear un producto.'
         });
       else res.send(data);
     });
@@ -22,15 +22,15 @@ exports.create = (req, res) => {
 
 //MOSTRAR SOLO UN PRODUCTO
 exports.findOne = (req, res) => {
-    prod.findById(req.params.customerId, (err, data) => {
+    prod.findById(req.params.productId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra una prodegoria con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra una prodegoria con el siguiente id ${req.params.productId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de recuperar prodegoria con el siguiente id " + req.params.customerId
+            message: "Error al tratar de recuperar prodegoria con el siguiente id " + req.params.productId
           });
         }
       } else res.send(data);
@@ -59,7 +59,7 @@ exports.update = (req, res) => {
     }
   
     prod.updateById(
-      req.params.customerId,
+      req.params.productId,
       new Customer(req.body),
       (err, data) => {
         if (err) {

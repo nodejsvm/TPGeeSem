@@ -16,5 +16,13 @@ export class ProductoServices{
     getProd(){
         return this.http.get(`${this.API_URI}/producto`)
     }
+    
+    postProd(datonuevo){
+        return this.http.put(`${this.API_URI}/producto`,datonuevo)
+    }
+
+    deleteProd(idEliminar){
+        return this.http.delete(`${this.API_URI}/producto/${idEliminar}`)
+    }
 }
 

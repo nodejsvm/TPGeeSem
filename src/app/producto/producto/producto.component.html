@@ -33,7 +33,7 @@
              
                 <div class="form-group col-md-3">
                     <label for="inputNombre">Nombre</label>
-                    <input type="text" class="form-control" name="Nombremascota" placeholder="Ingrese Nombre">
+                    <input type="text" class="form-control" id="nombre" name="Nombremascota" placeholder="Ingrese Nombre">
                 </div>
 
                 <div class="form-group col-md-3">
@@ -67,16 +67,17 @@
 
                 <div class="form-group col-md-12">
                     <label for="inputNombre">Descripción</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="12" placeholder="Ingrese descripción del producto">
+                    <textarea class="form-control" id="descripcion" rows="12" placeholder="Ingrese descripción del producto">
         
                     </textarea>
                 </div>
                
   
             </div>
-  
-            <button type="submit" class="btn float-right botoneseliminar" style="margin-left: 10px;" data-toggle="modal" data-target="#eliminarmascota">Eliminar</button>
-            <button  type="submit" class="btn float-right botoneslilas" >Guardar</button>
+
+            <!-- BOTON ELIMINAR EN LA TABLA -->
+            <!-- <button type="submit" class="btn float-right botoneseliminar" style="margin-left: 10px;" data-toggle="modal" data-target="#eliminarmascota">Eliminar</button> -->
+            <button  type="submit" class="btn float-right botoneslilas" (click)="guardarProduc()">Guardar</button>
   
           </form>
   
@@ -128,7 +129,7 @@
                   <td >{{prod.estado}}</td>
                   <td >{{prod.descripcion}}</td>
                   <td >{{prod.precio}}</td>
-         
+                  <td ><button class="btn btn-danger" (click)="eliminarProduc(prod.idProd)">Eliminar</button></td>
             </tbody>
           </table>
   
