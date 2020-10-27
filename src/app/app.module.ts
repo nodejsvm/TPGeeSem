@@ -12,11 +12,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './secciones/footer/footer.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { app_routing } from './app.routes';
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthButtonComponent } from './secciones/auth-button/auth-button.component';
+import { ProductoServices } from './service/productos.services';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { app_routing } from './app.routes';
     ProductoComponent,
     MainNavComponent,
     FooterComponent,
-    ServiceComponenteComponent
+    ServiceComponenteComponent,
+    AuthButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,16 @@ import { app_routing } from './app.routes';
     MatCardModule,
     MatListModule,
     HttpClientModule,
-    app_routing
+    app_routing,
+
+    AuthModule.forRoot({
+      domain: 'dev-7q4batbj.us.auth0.com',
+      clientId: '7BJ200P186MVMexVtOkZZu951wzJBr6s'
+    })
   ],
-  providers: [],
+  providers: [
+    ProductoServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
