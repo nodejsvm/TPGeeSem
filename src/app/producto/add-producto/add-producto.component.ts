@@ -13,7 +13,7 @@ export class AddProductoComponent implements OnInit {
     estado: '',
     descripcion: '',
     precio: 0,
-    idCategoria: 1
+    idCat: 1
   };
 
   constructor(private productoServices: ProductoServices) { }
@@ -24,13 +24,14 @@ export class AddProductoComponent implements OnInit {
   // tslint:disable-next-line:typedef
   saveNewProduct() {
 
-    this.productoServices.postProd(this.prod)
-    .subscribe(
-      res => {
-        console.log(res);
-      },
-      err => console.error(err)
-    );
+    console.log(this.prod);
+    // this.productoServices.postProd(this.prod)
+    // .subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   err => console.error(err)
+    // );
   }
 
 }

@@ -106,3 +106,5 @@ exports.deleteAll = (req, res) => {
       else res.send({ message: `Todas los productos fueron eliminadas correctamente!` });
     });
   };
+
+  module.exports = prod;

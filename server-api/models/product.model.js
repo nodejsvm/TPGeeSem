@@ -6,12 +6,12 @@ const Prod = function(prod){
     this.estado = prod.estado,
     this.precio = prod.precio,
     this.descripcion = prod.descripcion
-    this.idCategoria = prod.idCategoria
+    this.idCat = prod.idCat
 };
 
 //Crear nueva Producto
-Prod.Create = (newProd, result) => {
-  sql.query("INSERT INTO Producto", newProd, (err, res) => {
+Prod.create = (newProd, result) => {
+  sql.query("INSERT INTO Producto", newProd.idProd,newProd.nombre, newProd.estado, newProd.descripcion, newProd.precio, newProd.idCat, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
