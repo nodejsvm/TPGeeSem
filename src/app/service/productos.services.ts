@@ -16,19 +16,19 @@ export class ProductoServices{
 
     constructor(private http: HttpClient) { }
 
-    getProd(): Observable<Producto>{
+    getProd(){
         return this.http.get(`${this.API_URI}/producto`);
     }
 
-    postProd(producto: Producto): Observable<Producto>{
+    postProd(producto: Producto){
         return this.http.post(`${this.API_URI}/producto`, producto);
     }
 
-    deleteProd(idEliminar: number): Observable<Producto>{
+    deleteProd(idEliminar: number){
         return this.http.delete(`${this.API_URI}/producto/${idEliminar}`);
     }
 
-    putProd(id: number, updateProduct: Producto): Observable<Producto>{
+    putProd(id: number, updateProduct: Producto){
         return this.http.put(`${this.API_URI}/producto/${id}`, updateProduct);
     }
 }

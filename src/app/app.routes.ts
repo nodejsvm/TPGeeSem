@@ -6,12 +6,14 @@ import {RouterModule, Routes } from '@angular/router';
 
 import { ServiceComponenteComponent } from './servicio/service-componente/service-componente.component';
 import { ProductoComponent } from './producto/producto/producto.component';
+import { AddProductoComponent } from './producto/add-producto/add-producto.component';
 
 // tslint:disable-next-line:variable-name
 const app_routes: Routes = [
 
      { path: 'Servicios', component: ServiceComponenteComponent },
      { path: 'Productos', component: ProductoComponent },
+     { path: 'AddProducto', component: AddProductoComponent },
      { path: '**', redirectTo: '/Producto', pathMatch: 'full'}
 ];
 

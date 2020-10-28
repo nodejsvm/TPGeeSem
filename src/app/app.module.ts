@@ -20,6 +20,8 @@ import { app_routing } from './app.routes';
 import { AuthModule } from '@auth0/auth0-angular';
 import { AuthButtonComponent } from './secciones/auth-button/auth-button.component';
 import { ProductoServices } from './service/productos.services';
+import { AddProductoComponent } from './producto/add-producto/add-producto.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ProductoServices } from './service/productos.services';
     MainNavComponent,
     FooterComponent,
     ServiceComponenteComponent,
-    AuthButtonComponent
+    AuthButtonComponent,
+    AddProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { ProductoServices } from './service/productos.services';
     MatListModule,
     HttpClientModule,
     app_routing,
+    FormsModule,
 
     AuthModule.forRoot({
       domain: 'dev-7q4batbj.us.auth0.com',

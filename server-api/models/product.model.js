@@ -5,12 +5,13 @@ const Prod = function(prod){
     this.nombre = prod.nombre,
     this.estado = prod.estado,
     this.precio = prod.precio,
-    this.detalle = prod.detalle
+    this.descripcion = prod.descripcion
+    this.idCategoria = prod.idCategoria
 };
 
 //Crear nueva Producto
 Prod.Create = (newProd, result) => {
-  sql.query("INSERT INTO Producto SET ?", newProd, (err, res) => {
+  sql.query("INSERT INTO Producto", newProd, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
