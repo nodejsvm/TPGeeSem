@@ -1,108 +1,18 @@
-<!--TRAIGO EN UN ARRAY TODOS LOS PRODUCTOS Y LOS PASO A LA VARIABLE PROD-->
-<!--<div>
-    <tbody>
-        <tr *ngFor = "let prod of listProduArray">
-            <!--TENEMOS QUE PONER LOS CAMPOS COMO EN LA BD, CONEXION IGUAL A C#-->
-            <!--<td >{{prod.idProd}}</td>
-            <td >{{prod.nombre}}</td>
-            <td >{{prod.estado}}</td>
-            <td >{{prod.descripcion}}</td>
-            <td >{{prod.precio}}</td>
-        </tr>
-    </tbody>
-</div>
--->
-<div class="row">
-    <div class="col-md-12">  
-      <div class="card bordecard colorletrasnegras">
-        <div class="card-header">
-          Ficha Producto
-        </div>
-  
-        <div class="card-body">
-  
-          <form>
-            <div class="form-row">
-             
-                <div class="form-group col-md-3">
-                    <label for="inputNombre">Nombre</label>
-                    <input type="text" class="form-control" name="Nombremascota" placeholder="Ingrese Nombre">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="inputState">Estado</label>
-                    <select id="inputState" class="form-control" name="Castrado">
-                      <option value=1 >Habilitado</option>
-                      <option value=0 >Desabilitado</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="inputNombre">Precio</label>
-                    <input type="text" class="form-control" name="Nombremascota" placeholder="Ingrese Precio">
-                </div>
-
-              
-                <div class="form-group col-md-3">
-                    <label for="inputState">Categoría</label>
-                    <select id="inputState" class="form-control" name="tamanio" >
-                     
-                    </select>
-                    <div *ngIf="">
-                      <h6 class=text-danger>Complete este campo</h6>
-                    </div>
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="inputNombre">Url de la imagen</label>
-                    <input type="text" class="form-control" name="Nombremascota" placeholder="Ingrese Url de la imagen">
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="inputNombre">Descripción</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="12" placeholder="Ingrese descripción del producto">
-        
-                    </textarea>
-                </div>
-            </div>
-            <button type="submit" class="btn float-right botoneseliminar" style="margin-left: 10px;" data-toggle="modal" data-target="#eliminarmascota">Eliminar</button>
-            <button  type="submit" class="btn float-right botoneslilas" >Guardar</button>
-          </form>
-        </div>
-      </div>
-      <br>
+<div class="col-md-12" *ngFor="let prod of products">
+  <div class="card text-center" style="margin-bottom: 20px;">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{prod.nombre}}
+      <button class="btn btn-danger" (click)="deleteProduct(prod.id)">
+        <i class="far fa-trash-alt"></i>
+      </button>
     </div>
-</div>
-
-<div class="card bordecard deslizarhaciaabajo colorletrasnegras">
-    <div class="card-header">
-      Listado de Productos
-    </div>
+    <img class="card-img-top" [src]="game.image">
     <div class="card-body">
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Cód.Prod.</th>
-                <th scope="col">Categoría</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Descripción </th>
-                <th scope="col">Precio </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let prod of products">
-                  <td >{{prod.idProd}}</td>
-                  <td >{{prod.nombre}}</td>
-                  <td >{{prod.estado}}</td>
-                  <td >{{prod.descripcion}}</td>
-                  <td >{{prod.precio}}</td>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <p>{{prod.descripcion}}</p>
+      <p>Creado a las {{prod.created_at | date: 'yyyy-MM-dd'}}</p>
+      <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">
+        Editar Producto
+      </a>
+    </div>
   </div>
-
-
-
+</div>

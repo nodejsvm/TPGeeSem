@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable
 (
     {
-        providedIn:'root'
+        providedIn: 'root'
     }
 )
 
 export class ProductoServices{
 
-    API_URI:string = 'http://localhost:3000';
+    API_URI = 'http://localhost:3000';
 
     constructor(private http: HttpClient) { }
 

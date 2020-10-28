@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-auth-button',
-templateUrl: './auth-button.component.html',
+  templateUrl: './auth-button.component.html',
   styleUrls: []
 })
 export class AuthButtonComponent{

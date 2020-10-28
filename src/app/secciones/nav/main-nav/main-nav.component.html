@@ -22,15 +22,30 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Gimnasio H2O</span>
+      
+      <span class="navbar-text">
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut" >
+          <button class="btn btn-danger" style="float: right; margin-left: 300px;" (click)="auth.logout()">
+            Salir
+          </button>
+        </ng-container>
+  
+        <ng-template #loggedOut>
+          <button class="btn btn-outline-warning" (click)="auth.loginWithRedirect()">Ingresar</button>
+        </ng-template>
+      </span>
+
+      <!-- <ul *ngIf="auth.user$ | async as user">
+        <li>{{ user.name }}</li>
+        <li>{{ user.email }}</li>
+      </ul> -->
+
     </mat-toolbar>
     <!-- //Acá debajo van los componentes -->
     
-     <!-- <app-auth-button></app-auth-button> -->
-     <!-- <router-outlet></router-outlet> -->
-    
-    <!-- <div class="container p-4"></div> -->
+    <div class="container p-4">
       <router-outlet></router-outlet>
-    <!-- </div> -->
+    </div> 
     
     <app-footer></app-footer>
     
