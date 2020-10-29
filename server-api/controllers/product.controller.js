@@ -9,7 +9,7 @@ exports.create = (req, res) => {
       });
     }
 
-    prod.create(req.body,(err, data) => {
+    prod.Create(req.body,(err, data) => {
       if (err)
         res.status(500).send({
           message:
@@ -106,5 +106,3 @@ exports.deleteAll = (req, res) => {
       else res.send({ message: `Todas los productos fueron eliminadas correctamente!` });
     });
   };
-
-  module.exports = prod;

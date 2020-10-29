@@ -1,7 +1,6 @@
 const sql = require('./db.js');
 
 const Prod = function(prod){
-    this.idProd = prod.idProd,
     this.nombre = prod.nombre,
     this.estado = prod.estado,
     this.precio = prod.precio,
@@ -10,16 +9,18 @@ const Prod = function(prod){
 };
 
 //Crear nueva Producto
-Prod.create = (newProd, result) => {
-  sql.query("INSERT INTO Producto", newProd.idProd,newProd.nombre, newProd.estado, newProd.descripcion, newProd.precio, newProd.idCat, (err, res) => {
+Prod.Create = (newProd, result) => {
+  sql.query(`INSERT INTO Producto (nombre, estado, descripcion, precio, idCat) values ('${newProd.nombre}', '${newProd.estado}', '${newProd.descripcion}', ${newProd.precio}, ${newProd.idCat})`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
-
-    console.log("Producto creado: ", { id: res.insertId, ...newProd });
-    result(null, { id: res.insertId, ...newProd });
+    else{
+      console.log(res);
+      result(null, res);
+      return;
+    }
   });
 };
 

@@ -21,17 +21,10 @@ export class AddProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
-  saveNewProduct() {
-
-    console.log(this.prod);
-    // this.productoServices.postProd(this.prod)
-    // .subscribe(
-    //   res => {
-    //     console.log(res);
-    //   },
-    //   err => console.error(err)
-    // );
+  createProducto(): void{
+    this.productoServices.postProd(this.prod).subscribe(
+      res => console.log(res),
+      err => console.error(err)
+    );
   }
-
 }

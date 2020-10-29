@@ -10,10 +10,7 @@ import { ProductoServices } from '../../service/productos.services';
 })
 
 export class ProductoComponent implements OnInit{
-
   products: any = [];
-
-  constructor(private productoServices: ProductoServices) { }
 
   ngOnInit(): void {
     this.productoServices.getProd().subscribe(
@@ -24,5 +21,6 @@ export class ProductoComponent implements OnInit{
     );
   }
 
+  constructor(private productoServices: ProductoServices) { }
 }
 
