@@ -60,16 +60,16 @@ exports.update = (req, res) => {
   
     prod.updateById(
       req.params.productId,
-      new Customer(req.body),
+      new Product(req.body),
       (err, data) => {
         if (err) {
           if (err.kind === "not_found") {
             res.status(404).send({
-              message: `No se encuntra un producto con el siguiente id ${req.params.customerId}.`
+              message: `No se encuntra un producto con el siguiente id ${req.params.productId}.`
             });
           } else {
             res.status(500).send({
-              message: "Error al tratar de actualizar un producto con el siguiente id " + req.params.customerId
+              message: "Error al tratar de actualizar un producto con el siguiente id " + req.params.productId
             });
           }
         } else res.send(data);
@@ -79,15 +79,15 @@ exports.update = (req, res) => {
 
 //ELIMINAR UN PRODUCTO
 exports.delete = (req, res) => {
-    prod.remove(req.params.customerId, (err, data) => {
+    prod.remove(req.params.productId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra un producto con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un producto con el siguiente id ${req.params.productId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de eliminar un producto con el siguiente i " + req.params.customerId
+            message: "Error al tratar de eliminar un producto con el siguiente i " + req.params.productId
           });
         }
       } else res.send({ message: `Producto eliminado correctamente!` });

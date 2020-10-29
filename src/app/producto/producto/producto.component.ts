@@ -13,6 +13,12 @@ export class ProductoComponent implements OnInit{
   products: any = [];
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  constructor(private productoServices: ProductoServices) { }
+
+  getProducts() {
     this.productoServices.getProd().subscribe(
       res => {
         this.products = res;
@@ -21,6 +27,14 @@ export class ProductoComponent implements OnInit{
     );
   }
 
-  constructor(private productoServices: ProductoServices) { }
+  deleteProduct(id: number){
+    this.productoServices.deleteProd(id).subscribe(
+      res => {
+        console.log(res);
+        this.getProducts();
+      },
+      err => console.error(err)
+    );
+  }
 }
 
