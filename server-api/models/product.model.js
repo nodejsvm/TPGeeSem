@@ -6,11 +6,12 @@ const Prod = function(prod){
     this.precio = prod.precio,
     this.descripcion = prod.descripcion
     this.idCat = prod.idCat
+    this.url = prod.url
 };
 
 //Crear nueva Producto
 Prod.Create = (newProd, result) => {
-  sql.query(`INSERT INTO Producto (nombre, estado, descripcion, precio, idCat) values ('${newProd.nombre}', '${newProd.estado}', '${newProd.descripcion}', ${newProd.precio}, ${newProd.idCat})`, (err, res) => {
+  sql.query(`INSERT INTO Producto (nombre, estado, descripcion, precio, idCat, url) values ('${newProd.nombre}', '${newProd.estado}', '${newProd.descripcion}', ${newProd.precio}, ${newProd.idCat}, '${newProd.url}')`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -96,7 +97,7 @@ Prod.remove = (idProd, result) => {
       return;
     }
 
-    console.log("Se elimino el producto con id: ", id);
+    console.log("Se elimino el producto con id: ", idProd);
     result(null, res);
   });
 };

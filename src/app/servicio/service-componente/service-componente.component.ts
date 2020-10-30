@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ServicioServices } from '../../service/servicios.services';
 
 
@@ -27,10 +28,10 @@ export class ServiceComponenteComponent implements OnInit {
       );
   }
 
-  deleteService(id: number): void {
-    this.listserv.deleteService(id).subscribe(
+  deleteService(id: number): void{
+    this.listserv.deleteService(id)
+    .subscribe(
       res => {
-        // console.log(id);
         console.log(res);
         this.getServicios();
       },

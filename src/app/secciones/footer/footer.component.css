@@ -31,7 +31,7 @@ body {
   font-size: 16px;
   font-weight: 300;
   line-height: 28px;
-  color: #6a7695;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 .new_footer_top .company_widget .f_subscribe_two .btn_get {
@@ -83,7 +83,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   border-radius: 50%;
   font-size: 14px;
   line-height: 45px;
-  color: #858da8;
+  color: #ffffff;
   display: inline-block;
   background: #ebeef5;
   text-align: center;
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #4b505e;
 }
 .new_footer_top .f_widget.about-widget .f_list li a {
-  color: #6a7695;
+  color: #ffffff;
 }
 
 .new_footer_top .footer_bg {

@@ -8,15 +8,19 @@ import { ServiceComponenteComponent } from './servicio/service-componente/servic
 import { ProductoComponent } from './producto/producto/producto.component';
 import { AddProductoComponent } from './producto/add-producto/add-producto.component';
 import { AddServicioComponent } from './servicio/add-servicio/add-servicio.component';
+import { NosotrosComponent } from './secciones/nosotros/nosotros.component';
+import { ContactoComponent } from './secciones/contacto/contacto.component';
 
 // tslint:disable-next-line:variable-name
 const app_routes: Routes = [
 
      { path: 'Servicios', component: ServiceComponenteComponent },
-     { path: 'Productos', component: ProductoComponent },
+     { path: 'Producto', component: ProductoComponent },
      { path: 'AddProducto', component: AddProductoComponent },
      { path: 'AddServicio', component: AddServicioComponent},
-     { path: '**', redirectTo: '/Producto', pathMatch: 'full'}
+     { path: 'Nosotros', component: NosotrosComponent},
+     { path: 'Contacto', component: ContactoComponent},
+     { path: '**', redirectTo: '/Nosotros', pathMatch: 'full'}
 ];
 
 // tslint:disable-next-line:variable-name

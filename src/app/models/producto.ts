@@ -4,4 +4,5 @@ export interface Producto {
      descripcion?: string;
      precio?: number;
      idCat?: number;
+     url?: string;
   }

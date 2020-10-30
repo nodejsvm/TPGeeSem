@@ -1,4 +1,6 @@
-<div class="col-md-4 offset-md-2">
+<div class="row">
+  <div class="col-md-12 offset-md-5" style="font-size: 12px; margin-bottom: 20px;">AGREGAR NUEVO SERVICIO</div>
+  <div class="col-md-4 offset-md-4">
     <div class="card">
       <div class="card-body">
         <form action="">
@@ -17,6 +19,9 @@
           <div class="form-group">
             <textarea name="url" [(ngModel)]="serv.url" rows="2" placeholder="Url" class="form-control"></textarea>
           </div>
+          <!-- <div class="form-group">
+            <select name="cat" [(ngModel)]="serv.idCat" rows="2" placeholder="Categoria" class="form-control" (click)="getCategory()"></select>
+          </div> -->
           <button class="btn btn-success btn-block" (click)="createService()">
             Guardar
           </button>
@@ -24,5 +29,6 @@
       </div>
     </div>
   </div>
+</div>
   
 

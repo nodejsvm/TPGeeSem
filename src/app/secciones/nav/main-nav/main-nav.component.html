@@ -5,10 +5,14 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menú</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['']" routerLinkActive="router-link-active" >Nosotros</a>
-      <a mat-list-item [routerLink]="['Productos']" routerLinkActive="router-link-active" >Productos</a>
+      <ul *ngIf="auth.user$ | async as user">
+        <li class="user">Usuario: {{ user.name }}</li>
+      </ul> 
+
+      <a mat-list-item [routerLink]="['Nosotros']" routerLinkActive="router-link-active" >Nosotros</a>
+      <a mat-list-item [routerLink]="['Producto']" routerLinkActive="router-link-active" >Productos</a>
       <a mat-list-item [routerLink]="['Servicios']" routerLinkActive="router-link-active" >Servicios</a>
-      <a mat-list-item [routerLink]="['']" routerLinkActive="router-link-active" >Contacto</a>
+      <a mat-list-item [routerLink]="['Contacto']" routerLinkActive="router-link-active" >Contacto</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -21,7 +25,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Gimnasio H2O</span>
+      <span>Gimnasio H2O</span>      
       <span class="spacer"></span>
       <span class="navbar-text">
         <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut" >
@@ -34,12 +38,6 @@
           <button class="btn btn-dark" (click)="auth.loginWithRedirect()">Ingresar</button>
         </ng-template>
       </span>
-
-      <!-- <ul *ngIf="auth.user$ | async as user">
-        <li>{{ user.name }}</li>
-        <li>{{ user.email }}</li>
-      </ul> -->
-
     </mat-toolbar>
     <!-- //Acá debajo van los componentes -->
     

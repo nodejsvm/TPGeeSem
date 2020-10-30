@@ -8,7 +8,7 @@
           <i class="far fa-trash-alt"></i>
         </button>
       </div>
-      <!-- <img class="card-img-top" [src]="game.image"> -->
+      <img class="card-img-top" [src]="prod.url">
       <div class="card-body">
         <p style="color: black;">{{prod.descripcion}}</p>
         <!-- <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">
@@ -19,4 +19,6 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" routerLink="/AddProducto">Agregar Producto</button>
+<div class="row">
+  <button type="button" class="col-md-12 btn btn-info" routerLink="/AddProducto">Agregar Producto</button>
+</div>

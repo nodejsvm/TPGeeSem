@@ -23,6 +23,8 @@ import { ProductoServices } from './service/productos.services';
 import { AddProductoComponent } from './producto/add-producto/add-producto.component';
 import { FormsModule } from '@angular/forms';
 import { AddServicioComponent } from './servicio/add-servicio/add-servicio.component';
+import { NosotrosComponent } from './secciones/nosotros/nosotros.component';
+import { ContactoComponent } from './secciones/contacto/contacto.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AddServicioComponent } from './servicio/add-servicio/add-servicio.compo
     ServiceComponenteComponent,
     AuthButtonComponent,
     AddProductoComponent,
-    AddServicioComponent
+    AddServicioComponent,
+    NosotrosComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

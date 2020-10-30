@@ -11,12 +11,15 @@
       <img class="card-img-top" [src]="serv.url">
       <div class="card-body">
         <p style="color: black;">{{serv.descripcion}}</p>
-        <button class="btn btn-primary" (click)="updateService(serv.idServ)">
+        <button class="btn btn-info" (click)="updateService(serv.idServ)">
           Editar
         </button>
       </div>
     </div>
   </div>
  </div>
-  
-  <button type="button" class="btn btn-info" routerLink="/AddServicio">Agregar Servicio</button>
+
+ <div class="ro">
+  <button type="button" class="col-md-12 btn btn-info" routerLink="/AddServicio">Agregar Servicio</button>
+ </div>
+   

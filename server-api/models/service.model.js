@@ -84,24 +84,25 @@ Service.updateById = (id, Service, result) => {
   );
 };
 
+
 //ELIMINAR UN Servicio
-Service.remove = (idServ, result) => {
-  sql.query("DELETE FROM Servicio WHERE idServ = ?", idServ, (err, res) => {
+ Service.remove = (idServ, result) => {
+   sql.query("DELETE FROM Servicio WHERE idServ = ?", idServ, (err, res) => {
     if (err) {
-      console.log("Error: ", err);
-      result(null, err);
-      return;
-    }
+     console.log("Error: ", err);
+     result(null, err);
+    return;
+   }
 
-    if (res.affectedRows == 0) {
-      result({ kind: "Id para eliminar no encontrado" }, null);
-      return;
-    }
+     if (res.affectedRows == 0) {
+    result({ kind: "Id para eliminar no encontrado" }, null);
+    return;
+   }
 
-    console.log("Se elimino el Servicio con id: ", id);
+    console.log("Se elimino el Servicio con id: ", idServ);
     result(null, res);
   });
-};
+ };
 
 
 //ELIMINAR TODOS LOS Servicio

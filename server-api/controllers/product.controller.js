@@ -5,7 +5,7 @@ exports.create = (req, res) => {
 
     if (!req.body) {
       res.status(400).send({
-        message: "Content can not be empty!"
+        message: "El contenido no puede estar vacio!"
       });
     }
 
@@ -90,7 +90,8 @@ exports.delete = (req, res) => {
             message: "Error al tratar de eliminar un producto con el siguiente id " + req.params.productId
           });
         }
-      } else res.send({ message: `Producto eliminado correctamente!` });
+      } 
+      else res.send({ message: `Producto eliminado correctamente!` });
     });
   };
 
