@@ -9,7 +9,7 @@ exports.create = (req, res) => {
       });
     }
 
-    serv.create(serv, (err, data) => {
+    serv.Create(req.body, (err, data) => {
       if (err)
         res.status(500).send({
           message:
@@ -18,7 +18,6 @@ exports.create = (req, res) => {
       else res.send(data);
     });
   };
-
 
 //MOSTRAR SOLO UN SERVICIO
 exports.findOne = (req, res) => {
@@ -78,19 +77,19 @@ exports.update = (req, res) => {
   };
 
 //ELIMINAR UN SERVICIO
-exports.delete = (req, res) => {
-    serv.remove(req.params.customerId, (err, data) => {
+exports.delete= (req, res) => {
+    serv.remove(req.params.servId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un servicio con el siguiente id ${req.params.servId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de eliminar una servicio con el siguiente i " + req.params.customerId
+            message: "Error al tratar de eliminar una servicio con el siguiente id " + req.params.servId
           });
         }
-      } else res.send({ message: `Servicio eliminado correctamente!` });
+      } else res.send({ message: `Servicio eliminado correctamente!`});
     });
   };
 

@@ -87,7 +87,7 @@ exports.delete = (req, res) => {
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de eliminar un producto con el siguiente i " + req.params.productId
+            message: "Error al tratar de eliminar un producto con el siguiente id " + req.params.productId
           });
         }
       } else res.send({ message: `Producto eliminado correctamente!` });

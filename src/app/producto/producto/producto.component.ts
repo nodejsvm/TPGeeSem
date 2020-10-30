@@ -18,7 +18,7 @@ export class ProductoComponent implements OnInit{
 
   constructor(private productoServices: ProductoServices) { }
 
-  getProducts() {
+  getProducts(): void {
     this.productoServices.getProd().subscribe(
       res => {
         this.products = res;
@@ -27,7 +27,7 @@ export class ProductoComponent implements OnInit{
     );
   }
 
-  deleteProduct(id: number){
+  deleteProduct(id: number): void {
     this.productoServices.deleteProd(id).subscribe(
       res => {
         console.log(res);

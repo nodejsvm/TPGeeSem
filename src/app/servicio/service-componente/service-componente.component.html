@@ -1,77 +1,22 @@
-<div>
-  <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile class="image1" > Personal Trainer </mat-grid-tile>
-    <mat-grid-tile class="ubicacion">Clases colectivas en grupos reducidos de no mas de 15 personas, las sesiones se adaptan
-      al nivel y a la capacidad de los clientes para que puedan conseguir sus objetivos. 
-      <button type="button" class="btn btn-info btn-block">Editar</button>
-    </mat-grid-tile>
 
-    <hr>
-    <hr>
-
-    <mat-grid-tile class="image2">Nutricionista </mat-grid-tile>
-    <mat-grid-tile class="ubicacion">  
-      Adaptar a alimentación a las exigencias físicas que se presentan en las distintas disciplinas deportivas es fundamental
-      para los resultados deseados de manera saludable.
-      <button type="button" class="btn btn-info btn-block">Editar</button>
-    </mat-grid-tile>
-
-    <hr>
-    <hr> 
-
-    <mat-grid-tile class="image3"> Spinning Bike's </mat-grid-tile>
-    <mat-grid-tile class="ubicacion"> 
-      Actividad fisica focalizada en la resistencia, la fuerza, la alta intensidad y la recuperacion. Implica el 
-      uso de bicicletas fijas especiales con distintas velocidades y resistencia.
-      <button type="button" class="btn btn-info btn-block">Editar</button>
-    </mat-grid-tile>
-    
-    <hr>
-    <hr>
-
-    <mat-grid-tile class="image4"> Masajista </mat-grid-tile>
-    <mat-grid-tile class="ubicacion"> Experiencia de relajación y bienestar general, y cuidar tanto el cuerpo como
-      mente. De esta forma, puedes convertir en tu centro deportivo en un espacio pensado tambien para el relax.
-      <button type="button" class="btn btn-info btn-block">Editar</button>
-    </mat-grid-tile>
-    <hr>
-    <hr>
-    <mat-grid-tile class="image5"> Valoracion Médica - Clínica </mat-grid-tile>
-    <mat-grid-tile class="ubicacion"> La idea es que los clientes se puedan realizar análisis personalizados para que
-      los profesionales puedan realizar una prescripción del ejercio más adecuado en su caso.
-      <button type="button" class="btn btn-info btn-block">Editar</button>
-    </mat-grid-tile>
-  </mat-grid-list>
-  
-  <!--///TRAIGO EN UN ARRAY TODOS LOS SERVICIOS Y LOS PASO A LA VARIABLE SERV-->
-  <tbody *ngFor="let servi of listServiciosarray">
-    <tr >
-      <!--TENEMOS QUE PONER LOS CAMPOS COMO EN LA BD, CONEXION IGUAL A C# -->
-      <td>{{servi.idServ}}</td>
-      <td>{{servi.nombre}}</td>
-      <td>{{servi.estado}}</td>
-      <td>{{servi.descripcion}}</td>
-      <td>{{servi.precio}}</td>
-    </tr>
-  </tbody>
-
-</div>
-
-<!-- <div class="col-md-12" *ngFor="let serv of servicio">
-  <div class="card text-center" style="margin-bottom: 20px;">
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-      {{prod.nombre}}
-      <button class="btn btn-danger" (click)="deleteProduct(prod.id)">
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </div>
-    <img class="card-img-top" [src]="game.image">
-    <div class="card-body">
-      <p>{{prod.descripcion}}</p>
-      <p>Creado a las {{prod.created_at | date: 'yyyy-MM-dd'}}</p>
-      <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">
-        Editar Producto
-      </a>
+ <div class="row">
+  <div class="col-md-4" *ngFor="let serv of listServiciosarray">
+    <div class="card text-center" style="margin-bottom: 20px;">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{serv.nombre}}
+        <button class="btn btn-danger" (click)="deleteService(serv.idServ)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <img class="card-img-top" [src]="serv.url">
+      <div class="card-body">
+        <p style="color: black;">{{serv.descripcion}}</p>
+        <button class="btn btn-primary" (click)="updateService(serv.idServ)">
+          Editar
+        </button>
+      </div>
     </div>
   </div>
-</div> -->
+ </div>
+  
+  <button type="button" class="btn btn-info" routerLink="/AddServicio">Agregar Servicio</button>

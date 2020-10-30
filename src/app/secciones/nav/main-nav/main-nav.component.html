@@ -22,16 +22,16 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Gimnasio H2O</span>
-      
+      <span class="spacer"></span>
       <span class="navbar-text">
         <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut" >
-          <button class="btn btn-danger" style="float: right; margin-left: 300px;" (click)="auth.logout()">
+          <button class="btn btn-primary" style="float: right; margin-left: 300px;" (click)="auth.logout()">
             Salir
           </button>
         </ng-container>
   
         <ng-template #loggedOut>
-          <button class="btn btn-outline-warning" (click)="auth.loginWithRedirect()">Ingresar</button>
+          <button class="btn btn-dark" (click)="auth.loginWithRedirect()">Ingresar</button>
         </ng-template>
       </span>
 

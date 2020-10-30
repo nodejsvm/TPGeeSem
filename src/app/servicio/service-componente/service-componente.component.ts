@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioServices } from '../../service/servicios.services';
 
+
 @Component({
   selector: 'app-service-componente',
   templateUrl: './service-componente.component.html',
@@ -16,7 +17,7 @@ export class ServiceComponenteComponent implements OnInit {
     this.getServicios();
   }
 
-  getServicios(){
+  getServicios(): void{
     this.listserv.getServicios()
       .subscribe(
           res => {
@@ -25,6 +26,19 @@ export class ServiceComponenteComponent implements OnInit {
           err => console.error(err)
       );
   }
+
+  deleteService(id: number): void {
+    this.listserv.deleteService(id).subscribe(
+      res => {
+        // console.log(id);
+        console.log(res);
+        this.getServicios();
+      },
+      err => console.error(err)
+    );
+  }
+
+
 }
 
 

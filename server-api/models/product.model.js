@@ -92,7 +92,6 @@ Prod.remove = (idProd, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
       result({ kind: "Id para eliminar no encontrado" }, null);
       return;
     }

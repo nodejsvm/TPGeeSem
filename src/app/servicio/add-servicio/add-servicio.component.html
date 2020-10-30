@@ -1,0 +1,28 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <input type="text" name="title" [(ngModel)]="serv.nombre" placeholder="Nombre" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+              <textarea name="estado" [(ngModel)]="serv.estado" rows="2" placeholder="Estado" class="form-control"></textarea>
+            </div>
+          <div class="form-group">
+            <textarea name="description" [(ngModel)]="serv.descripcion" rows="2" placeholder="Descripción" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+              <textarea name="precio" [(ngModel)]="serv.precio" rows="2" placeholder="Precio" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <textarea name="url" [(ngModel)]="serv.url" rows="2" placeholder="Url" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-success btn-block" (click)="createService()">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+

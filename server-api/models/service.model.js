@@ -1,26 +1,30 @@
 const sql = require('./db.js');
 
 const Service = function(serv){
-    this.idserv = serv.idSer,
-    this.nombre = serv.nombre,
-    this.estado = serv.estado,
-    this.precio = serv.precio,
-    this.detalle = serv.detalle
+  this.nombre = serv.nombre,
+  this.estado = serv.estado,
+  this.precio = serv.precio,
+  this.descripcion = serv.descripcion
+  this.idCat = serv.idCat
+  this.url = serv.url
 };
 
 //Crear nueva Servicio
 Service.Create = (newService, result) => {
-  sql.query("INSERT INTO Servicio SET ?", newService, (err, res) => {
+  sql.query(`INSERT INTO Servicio (nombre, estado, descripcion, precio, idCat, url) values ('${newService.nombre}', '${newService.estado}', '${newService.descripcion}', ${newService.precio}, ${newService.idCat}, '${newService.url}')`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
-
-    console.log("Servicio creado: ", { id: res.insertId, ...newService });
-    result(null, { id: res.insertId, ...newService });
+    else{
+      console.log(res);
+      result(null, res);
+      return;
+    }
   });
 };
+
 
 //Buscar por ID
 Service.findById = (ServiceId, result) => {
@@ -81,8 +85,8 @@ Service.updateById = (id, Service, result) => {
 };
 
 //ELIMINAR UN Servicio
-Service.remove = (idService, result) => {
-  sql.query("DELETE FROM Servicio WHERE id = ?", idService, (err, res) => {
+Service.remove = (idServ, result) => {
+  sql.query("DELETE FROM Servicio WHERE idServ = ?", idServ, (err, res) => {
     if (err) {
       console.log("Error: ", err);
       result(null, err);
@@ -90,7 +94,6 @@ Service.remove = (idService, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
       result({ kind: "Id para eliminar no encontrado" }, null);
       return;
     }

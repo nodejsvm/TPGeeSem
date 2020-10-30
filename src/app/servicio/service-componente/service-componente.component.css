@@ -4,7 +4,7 @@ mat-grid-tile {
     font-size: 20px;
 }
 
-.image1{
+/* .image1{
     background-image:url('https://images.pexels.com/photos/4753985/pexels-photo-4753985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');   
    
 }
@@ -21,9 +21,7 @@ mat-grid-tile {
 .image5{
     background-image: url('https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
     color:black;
-    
-    
-}
+} */
 
 .ubicacion{
     text-align: center;

@@ -22,6 +22,7 @@ import { AuthButtonComponent } from './secciones/auth-button/auth-button.compone
 import { ProductoServices } from './service/productos.services';
 import { AddProductoComponent } from './producto/add-producto/add-producto.component';
 import { FormsModule } from '@angular/forms';
+import { AddServicioComponent } from './servicio/add-servicio/add-servicio.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ServiceComponenteComponent,
     AuthButtonComponent,
-    AddProductoComponent
+    AddProductoComponent,
+    AddServicioComponent
   ],
   imports: [
     BrowserModule,
