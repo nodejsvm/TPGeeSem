@@ -1,6 +1,7 @@
 const sql = require('./db.js');
 
 const Service = function(serv){
+  this.idServ = serv.idServ;
   this.nombre = serv.nombre,
   this.estado = serv.estado,
   this.precio = serv.precio,
@@ -27,8 +28,8 @@ Service.Create = (newService, result) => {
 
 
 //Buscar por ID
-Service.findById = (ServiceId, result) => {
-  sql.query(`SELECT * FROM Servicio WHERE id = ${ServiceId}`, (err, res) => {
+Service.findById = (idServ, result) => {
+  sql.query(`SELECT * FROM Servicio WHERE idServ = ${idServ}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -61,25 +62,23 @@ Service.getAll = result => {
 };
 
 //ACTUALIZAR EL Servicio POR EL ID
-Service.updateById = (id, Service, result) => {
+Service.updateById = (idServ, Service, result) => {
   sql.query(
-    "UPDATE Servicio SET email = ?, name = ?, active = ? WHERE id = ?",
-    [Service.nombre, categ.estado, Service.precio, Service.detalle, id],
+    `UPDATE Servicio SET nombre = ?, estado = ? , descripcion = ?, precio = ?, idCat = ?, url = ? WHERE idServ = ?`,
+    [Service.nombre, Service.estado, Service.descripcion, Service.precio, Service.idCat, Service.url, Service.idServ],
     (err, res) => {
       if (err) {
         console.log("Error: ", err);
         result(null, err);
         return;
       }
-
       if (res.affectedRows == 0) {
-        // not found Customer with the id
         result({ kind: "No se encotro servicio para actualizar" }, null);
         return;
       }
 
-      console.log("Servicio actualizado: ", { id: id, ...categ });
-      result(null, { id: id, ...categ });
+      console.log("Se actualizo el Servicio con id: ", idServ);
+      result(null, res);
     }
   );
 };

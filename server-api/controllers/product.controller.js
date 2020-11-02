@@ -1,4 +1,5 @@
-const prod = require('../models/product.model.js');
+const Prod = require('../models/product.model.js');
+const Prod2 = require('../models/product.model.js');
 
 //CREAR PRODUCTO
 exports.create = (req, res) => {
@@ -9,11 +10,11 @@ exports.create = (req, res) => {
       });
     }
 
-    prod.Create(req.body,(err, data) => {
+    Prod2.Create(req.body,(err, data) => {
       if (err)
         res.status(500).send({
           message:
-            err.message || 'Ocurrió un error al tratar de crear un producto.'
+            err.message || 'Ocurrió un error al tratar de crear un Producto.'
         });
       else res.send(data);
     });
@@ -22,7 +23,7 @@ exports.create = (req, res) => {
 
 //MOSTRAR SOLO UN PRODUCTO
 exports.findOne = (req, res) => {
-    prod.findById(req.params.productId, (err, data) => {
+  Prod2.findById(req.params.productId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
@@ -39,7 +40,7 @@ exports.findOne = (req, res) => {
 
 //MOSTRAR TODAS LOS PRODUCTOS
 exports.findAll = (req, res) => {
-     prod.getAll(( err, data) => {
+  Prod2.getAll(( err, data) => {
         if(err)
         res.status(500).send({
             message:
@@ -51,35 +52,38 @@ exports.findAll = (req, res) => {
 
 //ACTUALIZAR UN PRODUCTO
 exports.update = (req, res) => {
-    
-    if (!req.body) {
-      res.status(400).send({
-        message: "El contenido no puede estar vacio!"
-      });
+  if (!req.body) {
+    res.status(400).send({
+      message: "El contenido no puede estar vacio!"
+    });
+  }
+
+  Prod2.updateById(
+    req.params.productId,
+    new Prod(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `No se encuntra un producto con el siguiente id ${req.params.productId}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error al tratar de actualizar un producto con el siguiente id " + req.params.productId
+          });
+        }
+      } 
+      else{
+        res.send(data);
+        console.log("Producto actualizado correctamente.");
+      } 
     }
-  
-    prod.updateById(
-      req.params.productId,
-      new Product(req.body),
-      (err, data) => {
-        if (err) {
-          if (err.kind === "not_found") {
-            res.status(404).send({
-              message: `No se encuntra un producto con el siguiente id ${req.params.productId}.`
-            });
-          } else {
-            res.status(500).send({
-              message: "Error al tratar de actualizar un producto con el siguiente id " + req.params.productId
-            });
-          }
-        } else res.send(data);
-      }
-    );
+  );
   };
 
 //ELIMINAR UN PRODUCTO
 exports.delete = (req, res) => {
-    prod.remove(req.params.productId, (err, data) => {
+  Prod2.remove(req.params.productId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
@@ -98,7 +102,7 @@ exports.delete = (req, res) => {
 
 //ELIMINAR TODOS LOS PRODUCTOS
 exports.deleteAll = (req, res) => {
-    prod.removeAll((err, data) => {
+  Prod2.removeAll((err, data) => {
       if (err)
         res.status(500).send({
           message:

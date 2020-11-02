@@ -1,3 +1,4 @@
+const Service = require('../models/service.model.js');
 const serv = require('../models/service.model.js');
 
 //CREAR SERVICIO
@@ -21,15 +22,15 @@ exports.create = (req, res) => {
 
 //MOSTRAR SOLO UN SERVICIO
 exports.findOne = (req, res) => {
-    serv.findById(req.params.customerId, (err, data) => {
+    serv.findById(req.params.servId, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
+            message: `No se encuntra un servicio con el siguiente id ${req.params.servId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error al tratar de recuperar un servicio con el siguiente id " + req.params.customerId
+            message: "Error al tratar de recuperar un servicio con el siguiente id " + req.params.servId
           });
         }
       } else res.send(data);
@@ -58,20 +59,24 @@ exports.update = (req, res) => {
     }
   
     serv.updateById(
-      req.params.customerId,
-      new Customer(req.body),
+      req.params.servId,
+      new Service(req.body),
       (err, data) => {
         if (err) {
           if (err.kind === "not_found") {
             res.status(404).send({
-              message: `No se encuntra un servicio con el siguiente id ${req.params.customerId}.`
+              message: `No se encuntra un servicio con el siguiente id ${req.params.servId}.`
             });
           } else {
             res.status(500).send({
-              message: "Error al tratar de actualizar un servicio con el siguiente id " + req.params.customerId
+              message: "Error al tratar de actualizar un servicio con el siguiente id " + req.params.servId
             });
           }
-        } else res.send(data);
+        } 
+        else{
+          res.send(data);
+          console.log("Servicio actualizado correctamente.");
+        } 
       }
     );
   };

@@ -22,7 +22,7 @@
           <!-- <div class="form-group">
             <select name="cat" [(ngModel)]="serv.idCat" rows="2" placeholder="Categoria" class="form-control" (click)="getCategory()"></select>
           </div> -->
-          <button class="btn btn-success btn-block" (click)="createService()">
+          <button class="btn btn-success btn-block" (click)="edit ? saveService() : createService()">
             Guardar
           </button>
         </form>

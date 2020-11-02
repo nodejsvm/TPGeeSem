@@ -18,6 +18,8 @@ const app_routes: Routes = [
      { path: 'Producto', component: ProductoComponent },
      { path: 'AddProducto', component: AddProductoComponent },
      { path: 'AddServicio', component: AddServicioComponent},
+     { path: 'Servicio/Edit/:id', component: AddServicioComponent},
+     { path: 'Producto/Edit/:id', component: AddProductoComponent},
      { path: 'Nosotros', component: NosotrosComponent},
      { path: 'Contacto', component: ContactoComponent},
      { path: '**', redirectTo: '/Nosotros', pathMatch: 'full'}

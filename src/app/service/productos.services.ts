@@ -20,6 +20,10 @@ export class ProductoServices{
         return this.http.get(`${this.API_URI}/producto`);
     }
 
+    getProductById(idEditar: number){
+        return this.http.get(`${this.API_URI}/producto/${idEditar}`);
+    }
+
     postProd(producto: Producto){
         return this.http.post(`${this.API_URI}/producto`, producto);
     }

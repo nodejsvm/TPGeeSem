@@ -38,8 +38,6 @@ export class ServiceComponenteComponent implements OnInit {
       err => console.error(err)
     );
   }
-
-
 }
 
 

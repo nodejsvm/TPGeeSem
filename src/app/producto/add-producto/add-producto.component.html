@@ -19,7 +19,7 @@
            <div class="form-group">
              <textarea name="url" [(ngModel)]="prod.url" rows="2" placeholder="Url" class="form-control"></textarea>
           </div>
-          <button class="btn btn-success btn-block" (click)="createProducto()">
+          <button class="btn btn-success btn-block" (click)="edit ? saveProduct() : createProducto()">
             Guardar
           </button>
         </form>

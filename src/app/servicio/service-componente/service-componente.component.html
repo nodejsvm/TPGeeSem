@@ -11,9 +11,10 @@
       <img class="card-img-top" [src]="serv.url">
       <div class="card-body">
         <p style="color: black;">{{serv.descripcion}}</p>
-        <button class="btn btn-info" (click)="updateService(serv.idServ)">
+        <p style="color: black;">Precio: ${{serv.precio}}</p>
+        <a [routerLink]="['/Servicio/Edit', serv.idServ]" class="btn btn-info">
           Editar
-        </button>
+        </a>
       </div>
     </div>
   </div>

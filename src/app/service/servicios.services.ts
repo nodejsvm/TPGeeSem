@@ -20,6 +20,10 @@ export class ServicioServices{
         return this.http.get(`${this.API_URI}/servicio`);
     }
 
+    getServiciosById(idEditar: number){
+        return this.http.get(`${this.API_URI}/servicio/${idEditar}`);
+    }
+
     deleteService(idEliminar: number){
         return this.http.delete(`${this.API_URI}/servicio/${idEliminar}`);
     }

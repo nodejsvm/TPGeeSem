@@ -12,7 +12,8 @@ export class CategoryServices{
     API_URI = 'http://localhost:3000';
     constructor(private http: HttpClient){}
 
+    // tslint:disable-next-line:typedef
     getCategory(){
-        return this.http.get(`${this.API_URI}/categoria`)
+        return this.http.get(`${this.API_URI}/categoria`);
     }
 }

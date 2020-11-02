@@ -1,4 +1,5 @@
 export interface Producto {
+     idProd?: number;
      nombre?: string;
      estado?: string;
      descripcion?: string;
